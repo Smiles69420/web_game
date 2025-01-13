@@ -3,7 +3,8 @@ class Resources {
         //Everything we plan to download
         this.to_load = {
             sky: "/sprites/sky.png",
-            ground: "/sprites/ground.png"
+            ground: "/sprites/ground.png",
+            hero: "/sprites/hero-sheet.png"
         };
 
 
