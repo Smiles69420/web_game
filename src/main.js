@@ -25,16 +25,22 @@ const hero = new Sprite({
     Frame: 0
 })
 
-const heroPos = new Vector2(16*5,16*5);
+const heroPos = new Vector2(16*6,16*5);
 
 
 const draw = () => {
     skySprite.drawImage(ctx,0,0);
     groundSprite.drawImage(ctx,0,0);
-    hero.drawImage(ctx, 16*5,16*5);
+
+    const heroOffset = new Vector2(-8, -21);
+    const heroPosX = heroPos.x+heroOffset.x;
+    const heroPosY = heroPos.y+heroOffset.y;
+
+    hero.drawImage(ctx, heroPosX,heroPosY);
 }
 
 setInterval(() => {
     console.log("draw")
+    hero.Frame += 1
     draw()
 }, 300)
