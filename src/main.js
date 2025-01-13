@@ -2,6 +2,7 @@ import './style.css'
 import { resources } from './Resources';
 import { Sprite } from './Sprite';
 import { Vector2 } from './Vector2';
+import { GameLoop } from './GameLoop';
 
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
@@ -25,6 +26,11 @@ const hero = new Sprite({
     Frame: 0
 })
 
+const update = () => {
+    //Update code
+}
+
+
 const heroPos = new Vector2(16*6,16*5);
 
 
@@ -39,8 +45,5 @@ const draw = () => {
     hero.drawImage(ctx, heroPosX,heroPosY);
 }
 
-setInterval(() => {
-    console.log("draw")
-    hero.Frame += 1
-    draw()
-}, 300)
+const gameLoop = new GameLoop(update,draw);
+gameLoop.start();
