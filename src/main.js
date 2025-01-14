@@ -3,6 +3,7 @@ import { resources } from './Resources';
 import { Sprite } from './Sprite';
 import { Vector2 } from './Vector2';
 import { GameLoop } from './GameLoop';
+import { DOWN, Input, LEFT, RIGHT, UP } from './Input';
 
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
@@ -26,8 +27,25 @@ const hero = new Sprite({
     Frame: 0
 })
 
+const input = new Input()
+
 const update = () => {
-    //Update code
+    if(input.direction === DOWN){
+        heroPos.y += 1;
+        hero.Frame = 0;
+    }
+    if(input.direction === UP){
+        heroPos.y -= 1;
+        hero.Frame = 6;
+    }
+    if(input.direction === LEFT){
+        heroPos.x -= 1;
+        hero.Frame = 9;
+    }
+    if(input.direction === RIGHT){
+        heroPos.x += 1;
+        hero.Frame = 3;
+    }
 }
 
 
